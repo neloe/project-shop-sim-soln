@@ -28,7 +28,7 @@ Remember that for each milestone you are to have at least one unique commit that
 
 | Criteria | Total Points |
 | --- | --- |
-| Correctness (tests; 1 test) | 10 |
+| Correctness (tests; 1 / test) | 10 |
 | At least one unique commit per each milestone (1/milestone) | 9 |
 | Having a consistent and clean coding style | 4 |
 | Correctly placing the required comment headers in all `.java` files (except the tests) | 2 |
