@@ -14,18 +14,18 @@ import java.util.Scanner;
 
 public class Shop {
     private HashMap<String, Double> inventory;
-    private Queue<Customer> checkout;
+    private Queue<Customer> checker_line;
     
     public Shop()
     {
         inventory = new HashMap<>();
-        checkout = new LinkedList<>();
+        checker_line = new LinkedList<>();
     }
     
     public Shop(String inv_filename) throws FileNotFoundException
     {
         inventory = new HashMap<>();
-        checkout = new LinkedList<>();
+        checker_line = new LinkedList<>();
         restock(inv_filename);
     }
     
@@ -52,14 +52,14 @@ public class Shop {
             if (inventory.containsKey(item))
                 c.putInCart(item);
         c.updateOrder();
-        checkout.add(c);
+        checker_line.add(c);
     }
     
     public void checkout()
     {
-        if (!checkout.isEmpty())
+        if (!checker_line.isEmpty())
         {
-            Customer c = checkout.remove();
+            Customer c = checker_line.remove();
             Double total = 0.0;
             for (String item: c.getCart())
                 total += priceCheck(item);

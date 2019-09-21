@@ -11,64 +11,57 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 
-
 public class Customer {
+
     private Double budget;
     private HashSet<String> order;
     private ArrayList<String> cart;
-    
-    public Customer()
-    {
+
+    public Customer() {
         budget = 0.0;
         order = new HashSet<>();
         cart = new ArrayList<>();
     }
-    
-    public Customer(String filename) throws FileNotFoundException
-    {
+
+    public Customer(String filename) throws FileNotFoundException {
         order = new HashSet<>();
         cart = new ArrayList<>();
         loadCustomer(filename);
     }
-    
-    public void loadCustomer(String filename) throws FileNotFoundException
-    {
+
+    public void loadCustomer(String filename) throws FileNotFoundException {
         Scanner fin = new Scanner(new File(filename));
         budget = fin.nextDouble();
-        while (fin.hasNext())
+        while (fin.hasNext()) {
             order.add(fin.next());
+        }
     }
-    
-    public HashSet<String> getOrder()
-    {
+
+    public HashSet<String> getOrder() {
         return order;
     }
-    
-    public void putInCart(String item)
-    {
-        if (order.contains(item))
-        {
+
+    public Double getBudget() {
+        return budget;
+    }
+
+    public ArrayList<String> getCart() {
+        return cart;
+    }
+
+    public void pay(Double amt) {
+        budget -= amt;
+    }
+
+    public void putInCart(String item) {
+        if (order.contains(item)) {
             cart.add(item);
         }
     }
-    
-    public ArrayList<String> getCart()
-    {
-        return cart;
-    }
-    
-    public void pay(Double amt)
-    {
-        budget -= amt;
-    }
-    
-    public Double getBudget()
-    {
-        return budget;
-    }
-    public void updateOrder()
-    {
-        for (String item: cart)
+
+    public void updateOrder() {
+        for (String item : cart) {
             order.remove(item);
+        }
     }
 }
