@@ -1,0 +1,10 @@
+spaghetti 1.49
+apples 0.99
+carrots 1.50
+red_sauce 2.00
+chicken 3.80
+milk 2.50
+chips 1.00
+mac_n_cheese 1.20
+cold_cuts 4.00
+
